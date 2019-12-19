@@ -1,0 +1,70 @@
+
+keycode  22 = BackSpace 
+keycode  36 = Return
+keycode  24 = q Q Arabic_dad Arabic_fatha NoSymbol U2066
+keycode  25 = w W Arabic_sad Arabic_fathatan NoSymbol U2067
+keycode  26 = e E Arabic_theh Arabic_damma NoSymbol U2068
+keycode  27 = r R Arabic_qaf Arabic_dammatan NoSymbol U2069
+keycode  28 = t T Arabic_feh UFEF9 Arabic_veh
+keycode  29 = y Y Arabic_ghain Arabic_hamzaunderalef NoSymbol U202A
+keycode  30 = u U Arabic_ain grave NoSymbol U202B
+keycode  31 = i I Arabic_ha division NoSymbol U202C
+keycode  32 = o O Arabic_khah multiply
+keycode  33 = p P Arabic_hah Arabic_semicolon NoSymbol U200E
+keycode  38 = a A Arabic_sheen Arabic_kasra
+keycode  39 = s S Arabic_seen Arabic_kasratan
+keycode  40 = d D Arabic_yeh bracketright
+keycode  41 = f F Arabic_beh bracketleft Arabic_peh
+keycode  42 = g G Arabic_lam UFEF7
+keycode  43 = h H Arabic_alef Arabic_hamzaonalef U0671
+keycode  44 = j J Arabic_teh Arabic_tatweel
+keycode  45 = k K Arabic_noon Arabic_comma U066B
+keycode  46 = l L Arabic_meem slash
+keycode  52 = z Z Arabic_hamzaonyeh asciitilde guillemotright U203A
+keycode  53 = x X Arabic_hamza Arabic_sukun guillemotleft U2039
+keycode  54 = c C Arabic_hamzaonwaw braceright
+keycode  55 = v V Arabic_ra braceleft
+keycode  56 = b B UFEFB UFEF5
+keycode  57 = n N Arabic_alefmaksura Arabic_maddaonalef Arabic_superscript_alef
+keycode  58 = m M Arabic_tehmarbuta apostrophe
+keycode  10 = 1 exclam 1 exclam Arabic_1
+keycode  11 = 2 at 2 at Arabic_2
+keycode  12 = 3 numbersign 3 numbersign Arabic_3
+keycode  13 = 4 dollar 4 dollar Arabic_4
+keycode  14 = 5 percent 5 percent Arabic_5 U2030
+keycode  15 = 6 asciicircum 6 asciicircum Arabic_6
+keycode  16 = 7 ampersand 7 ampersand Arabic_7
+keycode  17 = 8 asterisk 8 asterisk Arabic_8
+keycode  18 = 9 parenleft 9 parenright Arabic_9
+keycode  19 = 0 parenright 0 parenleft Arabic_0
+keycode  65 = space NoSymbol space
+keycode  66 = Caps_Lock NoSymbol Caps_Lock
+keycode  94 = less greater bar brokenbar bar brokenbar
+keycode 111 = Up NoSymbol Up
+keycode 112 = Prior NoSymbol Prior
+keycode 113 = Left NoSymbol Left
+keycode 114 = Right NoSymbol Right
+keycode 115 = End NoSymbol End
+keycode 116 = Down NoSymbol Down
+keycode 117 = Next NoSymbol Next
+keycode 118 = Insert NoSymbol Insert
+keycode 119 = Delete NoSymbol Delete
+keycode  79 = KP_Home KP_7 KP_Home KP_7
+keycode  80 = KP_Up KP_8 KP_Up KP_8
+keycode  81 = KP_Prior KP_9 KP_Prior KP_9
+keycode  82 = KP_Subtract KP_Subtract KP_Subtract KP_Subtract KP_Subtract KP_Subtract XF86Prev_VMode KP_Subtract KP_Subtract XF86Prev_VMode
+keycode  83 = KP_Left KP_4 KP_Left KP_4
+keycode  84 = KP_Begin KP_5 KP_Begin KP_5
+keycode  85 = KP_Right KP_6 KP_Right KP_6
+keycode  86 = KP_Add KP_Add KP_Add KP_Add KP_Add KP_Add XF86Next_VMode KP_Add KP_Add XF86Next_VMode
+keycode  87 = KP_End KP_1 KP_End KP_1
+keycode  88 = KP_Down KP_2 KP_Down KP_2
+keycode  89 = KP_Next KP_3 KP_Next KP_3
+keycode  90 = KP_Insert KP_0 KP_Insert KP_0
+keycode  91 = KP_Delete KP_Decimal KP_Delete KP_Decimal
+
+
+
+
+
+

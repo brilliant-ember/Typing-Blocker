@@ -1,0 +1,15 @@
+{
+  "name": "typing-blocker",
+  "version": "1.0.0",
+  "description": "Blocks user from typing blacklisted keywords",
+  "main": "initCapture.js",
+  "dependencies": {
+    "xinput-mouse-key-logger": "^1.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node initCapture.js"
+  },
+  "author": "Mohammed Al",
+  "license": "MIT"
+}
