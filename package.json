@@ -4,8 +4,7 @@
   "description": "Blocks user from typing blacklisted keywords",
   "main": "initCapture.js",
   "dependencies": {
-    "robot": "^0.3.0",
-    "robotjs": "^0.6.0",
+    "python-shell": "^1.0.8",
     "xinput-mouse-key-logger": "^1.0.1"
   },
   "devDependencies": {},

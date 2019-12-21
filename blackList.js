@@ -1,4 +1,4 @@
-blackList = ["super", "man", "x","s"];
+blackList = ["super", "man", "x"];
 
 module.exports.blackList = blackList;
 // if there's a work with a space in it this should be true, words are not entered manually by editing this file,

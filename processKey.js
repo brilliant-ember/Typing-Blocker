@@ -1,7 +1,6 @@
 // This module takes a key as input and process it to determine if it is a black listed word
 let blackList = require('./blackList').blackList;
-let robot = require("robotjs");
-
+var {PythonShell}  = require( 'python-shell');
 
 const BUFFER_LIMIT = 10;
 let buffer = "";
@@ -11,26 +10,20 @@ function addToBuffer(letter, backSpace = false, clearBuffer=false){
     buffer = buffer + letter;
     console.log(buffer);
 
-    if (blackList.includes(buffer)){
-        handleMatch();
-    }
-    if (buffer.length >=  BUFFER_LIMIT){
-        buffer = ""
-    }
-
-    if (backSpace){buffer = buffer.slice(0, -1);}
+    if (blackList.includes(buffer)){handleMatch();}
+    else if (buffer.length >=  BUFFER_LIMIT){buffer = "" }
+    else if (backSpace){buffer = buffer.slice(0, -1);}
     else if (clearBuffer){buffer = ""}
 }
 
 function handleMatch(){
+    PythonShell.run('./handle_response.py', null, function (err) {
+        if (err) throw err;
+        console.log('finished');
+      });
+    
     console.log(buffer);
     console.log("match");
-    for(let i = 0 ; i <= buffer.length; i++){
-        robot.setKeyboardDelay(1);
-        robot.keyTap("backspace");
-        // robot.setKeyboardDelay(1);
-
-    }
     buffer= ""; // reset buffer after a match
 
 
