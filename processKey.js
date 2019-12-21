@@ -10,30 +10,37 @@ let buffer = "";
 
 // Note you want to clear the buffer whenever u get a space if there is no blacklist with space in it
 function addToBuffer(letter, backSpace = false, clearBuffer = false) {
+    // if (blackList.includes(buffer)){handleMatch();}
     if (clearBuffer) { buffer = "" }
 
     else {
         if (backSpace) { buffer = buffer.slice(0, -1); }
+
         buffer = buffer + letter;
 
-        //simple ratio of single words
-        let simpleRatio = fuzz.ratio("man", buffer);
-        
-        // very good with longer sentences
-        let tokenSetRatio = fuzz.token_set_ratio("man", buffer);
+        for (let i = 0; i < blackList.length; i++) {
+            let blackListedWord = blackList[i];
+            //simple ratio of single words
+            let simpleRatio = fuzz.ratio(blackListedWord, buffer);
 
-        //sort ratio is good for order of words
-        // let token_sort_ratio
+            // very good with longer sentences
+            let tokenSetRatio = fuzz.token_set_ratio(blackListedWord, buffer);
 
-        //partial ratio doesnt work good for us here as say for example man is blacklisted
-        //then a would score 100, a 'a' is a substring of man. it would trigger so many false positives
+            console.log({
+                "simpleRatio": simpleRatio, 
+                "tokenSetRatio":tokenSetRatio,
+                "blocked_word": blackListedWord,
+                "buffer": buffer
+            });
+            if (simpleRatio >= MATCHING_THRESHOLD || tokenSetRatio >= MATCHING_THRESHOLD) {
+                handleMatch();
+            }
 
-        if (simpleRatio >= MATCHING_THRESHOLD || tokenSetRatio >= MATCHING_THRESHOLD) {
-            handleMatch();
         }
-        // if (blackList.includes(buffer)){handleMatch();}
-        else if (buffer.length >= BUFFER_LIMIT) { buffer = "" }
+
+
     }
+    if (buffer.length >= BUFFER_LIMIT) { buffer = "" }
 }
 
 function handleMatch() {
@@ -44,6 +51,7 @@ function handleMatch() {
         if (err) throw err;
         console.log('finished');
     });
+    buffer = ""; // reset buffer after script keypresses execute
 
 
 

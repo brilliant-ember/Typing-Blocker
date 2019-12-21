@@ -29,10 +29,26 @@ it is probably cross platform, but it can't process numbers and symbols
 
 ### String matching
 Uses fuzzball package which depends on the edit distance principle for figuring out how similar strings are
-for more info about it go to https://en.wikipedia.org/wiki/Edit_distance and https://en.wikipedia.org/wiki/Levenshtein_distance
+for more info about it go to https://en.wikipedia.org/wiki/Edit_distance and https://en.wikipedia.org/wiki/Levenshtein_distance. 
+
+Code examples
+
+        //simple ratio of single words
+        let simpleRatio = fuzz.ratio("man", buffer);
+
+        // very good with longer sentences
+        let tokenSetRatio = fuzz.token_set_ratio("man", buffer);
+
+        //sort ratio is good for order of words
+        // let token_sort_ratio
+
+        //partial ratio doesnt work good for us here as say for example man is blacklisted
+        //then a would score 100, a 'a' is a substring of man. it would trigger so many false positives
 
 
 
 
 ## extra features
 instead of removing the text, press ctrl f4 to close the whole thing or to switch off the computer
+
+. An extra thing is that it keeps opening a new a new tab whenever I block a keyword in the browser URL space... it is on and off 
