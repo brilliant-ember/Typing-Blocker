@@ -4,6 +4,7 @@
   "description": "Blocks user from typing blacklisted keywords",
   "main": "initCapture.js",
   "dependencies": {
+    "fuzzball": "^1.3.0",
     "python-shell": "^1.0.8",
     "xinput-mouse-key-logger": "^1.0.1"
   },
