@@ -2,15 +2,19 @@
   "name": "typing-blocker",
   "version": "1.0.0",
   "description": "Blocks user from typing blacklisted keywords",
-  "main": "initCapture.js",
+  "main": "main.js",
   "dependencies": {
     "fuzzball": "^1.3.0",
     "python-shell": "^1.0.8",
     "xinput-mouse-key-logger": "^1.0.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "electron": "^7.1.7",
+    "electron-reload": "^1.5.0"
+  },
   "scripts": {
-    "test": "node initCapture.js"
+    "test": "node initCapture.js",
+    "start": "electron ."
   },
   "author": "Mohammed Al",
   "license": "MIT"

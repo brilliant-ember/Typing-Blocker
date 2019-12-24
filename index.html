@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Typing blocker</title>
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/index.css">
+
+
+  <!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
+  <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+</head>
+
+<body>
+  <div id="theHead">
+    <h1>Typing Blocker</h1>
+    <p>Put in words to get black listed </p>
+  </div>
+  <br />
+  <div id="inputRow" class="row">
+    <div id="blackListInput" class="col p-4">
+      <textarea id="toAdd"></textarea>
+      <button class="button" id="addButton"><span>Add word</span></button>
+    </div>
+    <div id="blackListDisplay" class = "col">
+      <ul id="list">
+        <li id="BLword">super</li>
+        <li id="BLword">man</li>
+        <li id="BLword">x</li>
+      </ul>
+    </div>
+  </div>
+  <br>
+  <div id="blockOptions">
+    <ul>
+      <li>Persisntant mode: <input type="checkbox" id="myCheck"></li>
+      <li>Shutdown on trigger: <input type="checkbox" id="shutdownCheck"></li>
+      <li>Show messege on violantion: <input type="checkbox" id="popupCheck"></li>
+    </ul>
+    <div class="slidecontainer">
+      <input type="range" min="50" max="100" value="50" class="slider" id="myRange">
+      <p>Tolernace: <span id="demo"></span></p>
+    </div>
+  </div>
+
+    <div  style="text-align:center" >
+  <button class="button" id="applyButton"><span>Apply!</span></button>
+</div>
+
+
+</body>
+<footer>Donate to the developer</footer>
+<script src="index.js"></script>
+<!-- <script src="js_ui/bootstrap.min.js"></script> -->
+
+
+</html>

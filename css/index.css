@@ -1,0 +1,101 @@
+/* body{
+  margin-left: auto;
+  margin-right: auto;
+} */
+ul{
+  list-style: none;
+}
+#theHead{
+  text-align: center;
+}
+
+#blackListInput{
+  /* float: left; */
+  padding: 10px;
+}
+#blackListDisplay{
+  float: right;
+}
+#blockOptions{
+  padding: 10px;
+  clear: both;
+}
+
+.slidecontainer {
+  width: 100%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 15px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #f4511e;
+  cursor: pointer;
+}
+
+/* #applyButton{
+
+} */
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 15px;
+  padding: 15px;
+  width: 120px;
+  transition: all 0.3s;
+  cursor: pointer;
+  margin: 5px;
+}
+.button span{
+  transition: 0.3s;
+  position: relative;
+  display: inline-block;
+}
+#addButton{
+  opacity: 0.7;
+}
+#addButton:hover{
+  opacity: 1;
+}
+#applyButton{
+  font-size: 25px;
+  width: 200px;
+  padding: 25px;
+}
+#applyButton:hover span{
+  padding-left: 15px;
+}
+#applyButton span:after{
+  content: ' \⏵ ';
+  right: -20px;
+  top:-3px;
+  position: absolute;
+  transition: 0.5s;
+  opacity: 0;
+}
+#applyButton:hover span:after{
+opacity: 100;
+right: -30px;
+}

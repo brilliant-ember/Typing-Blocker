@@ -50,5 +50,13 @@ Code examples
 
 ## extra features
 instead of removing the text, press ctrl f4 to close the whole thing or to switch off the computer
+cool down time after when seetings take place if the user sets hard mode ON aka persistnt
+make it presistanct, that it opens it self again if user cloeses it from the system moniter
+clipboard moniter ie copy+ paster check
 
-. An extra thing is that it keeps opening a new a new tab whenever I block a keyword in the browser URL space... it is on and off 
+
+## things to fix
+ it keeps opening a new a new tab whenever I block a keyword in the browser URL space... it is on and off 
+ When user types too fast, the ctrl +a can become ctrl  + something else, maybe use a batch type...
+ account for the left and right keys
+
