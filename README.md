@@ -58,6 +58,8 @@ instead of removing the text, press ctrl f4 to close the whole thing or to switc
 cool down time after when seetings take place if the user sets hard mode ON aka persistnt
 make it presistanct, that it opens it self again if user cloeses it from the system moniter
 clipboard moniter ie copy+ paster check
+account for pressing ctrl z for getting back the deleted words
+create seperate strings file where u keep all strings, to support multi langauges
 
 
 ## things to fix
