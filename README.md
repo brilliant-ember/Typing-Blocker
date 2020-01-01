@@ -8,7 +8,7 @@ A node program that moniters your keystrokes and blocks you from typing black li
 This is an electron app the has the main.js, index.js, index.html for UI, as for the  
 blocking functinality main entry point (no UI) it is initCapture.js.
 
-InitCapture listens to the user keyboard input and forwords the reading to processKey.js and if a user types a black listed keyword it executes a python script which backspaces "deletes" what the user typed
+InitCapture listens to the user keyboard input and forwords the reading to processKey.js and if a user types a black listed keyword it executes a python script which backspaces "deletes" what the user typed. It does that by using a python library called pyautogui to automate backspace event
 
 ### Why switched away from robotJS to node-key-sender library then switched to running a python shell in the node program
 Migrated from the robotJS node-key-sender, because robotJS was very slow to execute keyboard events, like pressing backspace. The speed could not be altered as the function setKeyboardDelay() did not work.

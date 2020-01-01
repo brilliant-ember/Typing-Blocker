@@ -93,9 +93,11 @@ function addListForDisplay(myList){
 
 // takes in a list of blacklist words and writes them to the blackList.js file so they can be blocked
 function writeBlackListFile(wordsToBlackList) {
-  let x = `//auto-generated, please do not edit manually unless you know what you are doing
-let blackList = ${JSON.stringify(wordsToBlackList)};
+  let x = `// auto-generated, please do not edit manually unless you know what you are doing
+const blackList = ${JSON.stringify(wordsToBlackList)};
+const tolerance = ${output.textContent};
 module.exports.blackList = blackList;
+module.exports.tolerance= tolerance;
   `;
   fs.writeFile(blackListFilePath, x, function (err) {
     if (err) {

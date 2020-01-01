@@ -2,10 +2,10 @@
 let blackList = require('./blackList').blackList;
 let { PythonShell } = require('python-shell');
 let fuzz = require('fuzzball');
-
+//recommended value is 75
+let MATCHING_THRESHOLD = require("./blackList").tolerance;
 
 const BUFFER_LIMIT = 10;
-const MATCHING_THRESHOLD = 75;
 let buffer = "";
 
 // Note you want to clear the buffer whenever u get a space if there is no blacklist with space in it

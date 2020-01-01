@@ -32,6 +32,13 @@ function createWindow () {
   })
 }
 
+// this is to auto start the app on login
+app.setLoginItemSettings({
+  openAtLogin:true,
+  // openAsHidden: true,
+});
+
+
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
