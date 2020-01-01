@@ -26,6 +26,9 @@ function startListning(){
         }, 0); // <- 0 is set, live mode is active!
     });
 }
+// for(let i = 0; i< process.argv.length; i++){
+// if (process.argv[i] === "test"){startListning();}
+// }
 module.exports.startListning = startListning;
 
 

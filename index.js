@@ -1,7 +1,7 @@
 // the javascript for the UI's html
 const fs = require('fs');
 let startListning = require("./initCapture");
-const blackListFilePath = "./blackList.js";
+const blackListFilePath = "./blackList.json";
 
 startListning.startListning();
 initUI();
@@ -25,12 +25,12 @@ document.getElementById("addButton").onclick = function () {
   }
 }
 
-let slider = document.getElementById("myRange");
-let output = document.getElementById("demo");
-output.textContent = slider.value;
+let slider = document.getElementById("toleranceSlider");
+let sliderVal = document.getElementById("toleranceDemo");
+sliderVal.textContent = slider.value;
 
 slider.oninput = function () {
-  output.textContent = this.value;
+  sliderVal.textContent = this.value;
 }
 document.getElementById("applyButton").onclick = function () {
   let tags = document.getElementById("list").getElementsByTagName("li");
@@ -42,7 +42,7 @@ document.getElementById("applyButton").onclick = function () {
 }
 
 // document.getElementById("myCheck").checked = true;
-
+// reades the blackList.json file to populate the UI
 function initUI() {
   let blFile = doesFileExist(blackListFilePath);
 
@@ -52,11 +52,11 @@ function initUI() {
         console.log(e);
         alert("error reading old blacklist");
       } else {
-        // parses the blacklist file to include it in the UI
-        let listStart = data.indexOf("[");
-        let listEnd = data.indexOf("]") + 1;
-        let oldList = JSON.parse(data.substring(listStart, listEnd));
-        addListForDisplay(oldList);
+        data = JSON.parse(data);
+        console.log(data);
+        addListForDisplay(data.blackList);
+        slider.value = data.tolerance;
+        sliderVal.textContent = data.tolerance;
       }
     });
 
@@ -93,12 +93,10 @@ function addListForDisplay(myList){
 
 // takes in a list of blacklist words and writes them to the blackList.js file so they can be blocked
 function writeBlackListFile(wordsToBlackList) {
-  let x = `// auto-generated, please do not edit manually unless you know what you are doing
-const blackList = ${JSON.stringify(wordsToBlackList)};
-const tolerance = ${output.textContent};
-module.exports.blackList = blackList;
-module.exports.tolerance= tolerance;
-  `;
+  let x = JSON.stringify({
+    blackList: wordsToBlackList,
+    tolerance: sliderVal.textContent
+  });
   fs.writeFile(blackListFilePath, x, function (err) {
     if (err) {
       console.log(err);

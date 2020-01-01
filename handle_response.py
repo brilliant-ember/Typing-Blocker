@@ -3,11 +3,12 @@
 from pyautogui import press, keyDown, keyUp
 from time import sleep
 
+#this function does ctrl+A then backspace, I do backspace twice because some browsers have autofill that 
+# requires pressing backspace another time to clear it
 def clearInput():
   keyDown('ctrl') # Press the ctrl key down and hold it.
   press('a') # Press the a key.
   keyUp('ctrl')   # Let go of the ctrl key.
-
   press('backspace')
   press('backspace')
 

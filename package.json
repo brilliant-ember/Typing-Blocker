@@ -13,7 +13,7 @@
     "electron-reload": "^1.5.0"
   },
   "scripts": {
-    "test": "node initCapture.js",
+    "test": "node -e ' require(\"./initCapture.js\").startListning()' ",
     "start": "electron ."
   },
   "author": "Mohammed Al",
