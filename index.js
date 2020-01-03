@@ -1,5 +1,6 @@
 // the javascript for the UI's html
 const fs = require('fs');
+const { shell } = require('electron')
 let startListning = require("./initCapture");
 const blackListFilePath = "./blackList.json";
 // This part is for the tolerance slider
@@ -42,6 +43,11 @@ document.getElementById("applyButton").onclick = function () {
   }
   writeBlackListFile(wordsToBlackList);
 }
+
+document.getElementById("paypal").onclick = (()=>{
+  shell.openExternal("https://paypal.me/ShukranThanksMerci")
+});
+
 
 // reades the blackList.json file to populate the UI
 function initUI() {
