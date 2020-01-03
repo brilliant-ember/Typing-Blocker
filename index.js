@@ -2,10 +2,14 @@
 const fs = require('fs');
 let startListning = require("./initCapture");
 const blackListFilePath = "./blackList.json";
+// This part is for the tolerance slider
+const slider = document.getElementById("toleranceSlider");
+const sliderVal = document.getElementById("toleranceDemo");
 
 startListning.startListning();
 initUI();
 
+// the add button, to add new words to blacklist
 document.getElementById("addButton").onclick = function () {
   let newBlackListedWord = document.getElementById("toAdd").value;
   //if length without space is not more than 1
@@ -14,8 +18,8 @@ document.getElementById("addButton").onclick = function () {
   }
   else if (sanitize(newBlackListedWord)) {
     // document.getElementById("blackListDisplay").innerHTML = newBlackListedWord;
-    if(newBlackListedWord.indexOf(",") === -1){addWordForDisplay(newBlackListedWord);}
-    else{
+    if (newBlackListedWord.indexOf(",") === -1) { addWordForDisplay(newBlackListedWord); }
+    else {
       addListForDisplay(newBlackListedWord.split(","));
     }
   }
@@ -25,13 +29,11 @@ document.getElementById("addButton").onclick = function () {
   }
 }
 
-let slider = document.getElementById("toleranceSlider");
-let sliderVal = document.getElementById("toleranceDemo");
-sliderVal.textContent = slider.value;
-
 slider.oninput = function () {
   sliderVal.textContent = this.value;
 }
+
+// The apply button logic
 document.getElementById("applyButton").onclick = function () {
   let tags = document.getElementById("list").getElementsByTagName("li");
   let wordsToBlackList = [];
@@ -41,26 +43,26 @@ document.getElementById("applyButton").onclick = function () {
   writeBlackListFile(wordsToBlackList);
 }
 
-// document.getElementById("myCheck").checked = true;
 // reades the blackList.json file to populate the UI
 function initUI() {
-  let blFile = doesFileExist(blackListFilePath);
+  sliderVal.textContent = slider.value;
 
-  if (blFile) {
-    fs.readFile(blackListFilePath, 'utf8', (e, data) => {
-      if (e) {
-        console.log(e);
-        alert("error reading old blacklist");
-      } else {
-        data = JSON.parse(data);
-        console.log(data);
-        addListForDisplay(data.blackList);
-        slider.value = data.tolerance;
-        sliderVal.textContent = data.tolerance;
-      }
-    });
-
+  let data = readBlackListFile();
+  if (data) {
+    addListForDisplay(data.blackList);
+    slider.value = data.tolerance;
+    sliderVal.textContent = data.tolerance;
   }
+}
+
+// reads the blacklist file and then outputs the resulting json, outputs undefined if file not read or doesnt exist
+function readBlackListFile() {
+  let blFile = doesFileExist(blackListFilePath);
+  let returnJson ;
+  if (blFile) {
+     returnJson =JSON.parse(fs.readFileSync(blackListFilePath, 'utf8'));
+  }
+  return returnJson
 }
 
 //if the search result is -1 then we hava a valid string and we will return true, otherwise return false
@@ -69,24 +71,39 @@ function sanitize(string) {
   return string.search(reg) == -1;
 }
 
-// adds a UI entry for blackListed words, note that you have to apply before they can be written and applied
-function addWordForDisplay(newBlackListedWord) {
-  let ul = document.getElementById("list");
+function appendItemToUiList(ul, content) {
   let li = document.createElement("li");
-  li.appendChild(document.createTextNode(newBlackListedWord));
-  li.setAttribute("class", "BLword");
+  let span = document.createElement("span");
+  span.appendChild(document.createTextNode(content));
+  li.appendChild(span);
+  li.setAttribute("class", "blWord");
+  li.addEventListener("click", function (event) {
+    removeWordFromBlackList(event.target.innerText);
+  });
   ul.appendChild(li);
 }
 
+function removeWordFromBlackList(word) {
+  let json = readBlackListFile();
+  if(json){
+    let newBlacklist = json.blackList.filter((val)=>{return val !== word});
+    writeBlackListFile(newBlacklist);
+  } else{
+    console.log("blacklist doesn't exist so cannot remove the word: " + word);
+  }
+}
+// adds a UI entry for blackListed words, note that you have to apply before they can be written and applied
+function addWordForDisplay(newBlackListedWord) {
+  let ul = document.getElementById("list");
+  appendItemToUiList(ul, newBlackListedWord)
+}
+
 //same as addWordForDisplay but with a lis instead
-function addListForDisplay(myList){
+function addListForDisplay(myList) {
 
   let ul = document.getElementById("list");
   for (let i = 0; i < myList.length; i++) {
-    let li = document.createElement("li");
-    li.appendChild(document.createTextNode(myList[i]));
-    li.setAttribute("class", "BLword");
-    ul.appendChild(li);
+    appendItemToUiList(ul, myList[i]);
   }
 }
 
@@ -112,6 +129,6 @@ function doesFileExist(path) {
     return stats.isFile();
   } catch (E) {
     console.log(E);
-    return False;
+    return false;
   }
 }

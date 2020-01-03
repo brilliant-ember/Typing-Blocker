@@ -7,6 +7,7 @@ ul{
 }
 #theHead{
   text-align: center;
+  padding-top: 2%;
 }
 
 #blackListInput{
@@ -21,39 +22,30 @@ ul{
   clear: both;
 }
 
-.slidecontainer {
-  width: 100%;
+.blWord{
+  color: rgb(122, 122, 122);
+  background-color:rgb(192, 192, 192);
+  display: inline-flex;
+  text-align: center;
+  padding: 5px;
+  margin: 1px;
+  cursor: default;
 }
 
-.slider {
-  -webkit-appearance: none;
-  width: 100%;
-  height: 15px;
-  border-radius: 5px;
-  background: #d3d3d3;
-  outline: none;
-  opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
+.blWord span::after{
+  content: "\166D";
+  position: relative;
+  top:-5px;
+  right: -2px;
+  font-size: 15px;
+  transition: 0.3s;
+  opacity: 0;
 }
-
-.slider:hover {
+.blWord:hover span::after{
   opacity: 1;
-}
-
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  background: #f4511e;
   cursor: pointer;
 }
 
-/* #applyButton{
-
-} */
 .button {
   display: inline-block;
   border-radius: 4px;
@@ -98,4 +90,34 @@ ul{
 #applyButton:hover span:after{
 opacity: 100;
 right: -30px;
+}
+
+.slidecontainer {
+  width: 100%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 15px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #f4511e;
+  cursor: pointer;
 }

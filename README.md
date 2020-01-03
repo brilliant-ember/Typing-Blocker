@@ -1,8 +1,6 @@
 A node program that moniters your keystrokes and blocks you from typing black listed words
 
 
-
-
 # Genenral Development Notes
 ### General Archetecture 
 This is an electron app the has the main.js, index.js, index.html for UI, as for the  
@@ -49,8 +47,6 @@ Code examples
 
         //partial ratio doesnt work good for us here as say for example man is blacklisted
         //then a would score 100, a 'a' is a substring of man. it would trigger so many false positives
-
-
 
 
 ## extra features
