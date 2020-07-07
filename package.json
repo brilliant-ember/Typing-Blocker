@@ -9,7 +9,7 @@
     "xinput-mouse-key-logger": "^1.0.1"
   },
   "devDependencies": {
-    "electron": "^7.1.7",
+    "electron": "^7.2.4",
     "electron-reload": "^1.5.0"
   },
   "scripts": {
